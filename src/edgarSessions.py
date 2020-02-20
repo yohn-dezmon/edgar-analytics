@@ -36,10 +36,22 @@ class EdgarAnalytics(object):
             return ''
         return date_time
 
-    def main(self, path_to_input, path_to_output):
+    def main(self, path_to_input, path_to_inactiv, path_to_output):
+
+        with open(path_to_inactiv) as text_file:
+            csv_reader = csv.reader(text_file, delimiter=',')
+
+
+
+            for line in csv_reader:
+                inactiv_secs = line[0]
+
+                if inactiv_secs == "":
+                    return "No inactivity period provided"
 
         with open(path_to_input) as input_file:
             csv_reader = csv.reader(input_file, delimiter=',')
+            
 
             line_count = 0
             for row in csv_reader:
@@ -82,9 +94,10 @@ if __name__ == '__main__':
     # ba stands for border analytics
     edgarAnalytics = EdgarAnalytics()
 
-    if len(argv) == 3:
+    if len(argv) == 4:
         input = argv[1]
-        output = argv[2]
+        inactiv_period = argv[2]
+        output = argv[3]
     else:
         raise IncorrectCommandLine(argv)
 
@@ -92,4 +105,4 @@ if __name__ == '__main__':
     # path_to_output = parentPath+'/output/report.csv'
     # path_to_input = parentPath+'/input/log.csv'
 
-    edgarAnalytics.main(input, output)
+    edgarAnalytics.main(input, inactiv_period, output)
