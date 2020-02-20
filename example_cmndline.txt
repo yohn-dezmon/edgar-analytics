@@ -1,5 +1,5 @@
 $ cd src
-$ python3 edgarSessions.py ../input/log.csv ../input/inactivity_period.txt output.csv
+$ python3 edgarSessions.py ../input/log.csv ../input/inactivity_period.txt ../output/output.csv
 
  or
-$ python3 edgarSessions.py ../input/log.csv output.csv
+$ python3 edgarSessions.py ../input/log.csv ../output/output.csv
