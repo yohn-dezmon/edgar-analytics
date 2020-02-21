@@ -48,7 +48,7 @@ class EdgarAnalytics(object):
                             path_to_output):
         keys_to_be_deleted = []
         for key in session_dict:
-            # check if current time - most recent time > inactivity period
+            # check if current time - most recent time > 2
             # if true, return [key/ip,value[0],value[2]
             values = session_dict[key]
             mostrecent = values[1]
