@@ -41,12 +41,12 @@ output file, ```sessionization.txt``` within the output directory.
 
 ## SEC Weblog Schema:
 
-**ip** --> any two ip fields with duplicate values are referring to the same IP address
-**date** --> date of the request (yyyy-mm-dd)
-**time** --> time of the request (hh:mm:ss)
-**cik** --> SEC Central Index Key
-**accession** --> SEC document accession number
-**extension** --> value that helps determine the document being requested
+**ip** --> any two ip fields with duplicate values are referring to the same IP address  
+**date** --> date of the request (yyyy-mm-dd)  
+**time** --> time of the request (hh:mm:ss)  
+**cik** --> SEC Central Index Key  
+**accession** --> SEC document accession number  
+**extension** --> value that helps determine the document being requested  
 
 The combination of cik, accession, and extension fields uniquely identifies a single web page document request. These fields can contain numbers, letters, hyphens, periods or other characters.
 
