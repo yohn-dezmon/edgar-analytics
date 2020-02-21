@@ -101,11 +101,6 @@ class EdgarAnalytics(object):
                     print(f'Row with invalid date format: {row}')
                     continue
 
-
-
-
-
-
                 if ip == '' or cik == '' or accession == '' or extention == '':
                     print(f'Null values in this row: {row}')
                     continue
@@ -151,7 +146,7 @@ class EdgarAnalytics(object):
             duration = (values[1] - values[0]).seconds + 1
             row_for_output = [key,values[0],values[1], duration, values[2]]
             self.write_to_file(path_to_output, row_for_output)
-        print("hey")
+        
 
 
 
