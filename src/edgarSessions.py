@@ -8,12 +8,6 @@ import os.path as op
 from sys import argv
 from testing_argv import IncorrectCommandLine
 
-# /Users/HomeFolder/projects/edgar-analytics/src/edgarSessions.py
-absPath = os.path.abspath(__file__)
-# /Users/HomeFolder/projects/edgar-analytics/src
-srcPath = os.path.dirname(absPath)
-# /Users/HomeFolder/projects/edgar-analytics
-parentPath = os.path.dirname(srcPath)
 
 class EdgarAnalytics(object):
     """ """
@@ -48,13 +42,10 @@ class EdgarAnalytics(object):
                             path_to_output):
         keys_to_be_deleted = []
         for key in session_dict:
-            # check if current time - most recent time > inactivity period
-            # if true, return [key/ip,value[0],value[2]
+
             values = session_dict[key]
             mostrecent = values[1]
             # if current time - most recent is > inactivity_period
-            # or if
-
             diff_seconds = (datetime - mostrecent).seconds
             if diff_seconds > inactiv_secs:
                 duration = (values[1] - values[0]).seconds + 1
@@ -153,17 +144,8 @@ class EdgarAnalytics(object):
 
 
 if __name__ == '__main__':
-    # ba stands for border analytics
+
     edgarAnalytics = EdgarAnalytics()
-
-
-    # testPath = op.abspath(op.join(__file__, op.pardir, op.pardir))
-    # insight_testsuite = op.dirname(testPath)
-    # long_path_to_input = insight_testsuite+"/tests/test_1/input/Border_Crossing_Entry_Data.csv"
-    # path_to_output = testPath+"/output/report.csv"
-    #
-    # print(long_path_to_input)
-    # print(path_to_output)
 
     if len(argv) == 4:
         input = argv[1]
@@ -177,7 +159,5 @@ if __name__ == '__main__':
         raise IncorrectCommandLine(argv)
 
 
-    # path_to_output = parentPath+'/output/report.csv'
-    # path_to_input = parentPath+'/input/log.csv'
 
     edgarAnalytics.main(input, inactiv_period, output)
